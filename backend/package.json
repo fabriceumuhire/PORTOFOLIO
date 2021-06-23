@@ -11,7 +11,7 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "release": "npm run clean && npm run build && npm run serve",
     "clean": "rm -rf dist && mkdir dist",
-    "build": "babel . -s -D -d dist --presets env --ignore node_modules",
+    "builders": "babel . -s -D -d dist --presets env --ignore node_modules",
     "serve": "node dist/app.js"
   },
   "keywords": [
@@ -31,8 +31,7 @@
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.19",
-    "morgan": "^1.10.0",
-    "regenerator-runtime": "^0.13.7"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

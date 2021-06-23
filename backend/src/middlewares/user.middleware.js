@@ -13,3 +13,11 @@ export const Authenticate = async (req, res, next) => {
   }
   next();
 };
+
+export const emailExist = async(req, res, next) => {
+    const email = await User.findOne({ email: req.body.email });
+    if (email) {
+      return res.status(400).json({ error: 'Email exists already' });
+    }
+    next();
+}

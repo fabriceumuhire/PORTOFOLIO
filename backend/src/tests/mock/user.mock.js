@@ -13,3 +13,8 @@ export const wrongPass = {
   email: 'adminsysadm5hello.com',
   password: '12ggr',
 };
+
+export const loginUser = {
+  email: 'sysadm@hello.com',
+  password: '12ggdsce',
+};
