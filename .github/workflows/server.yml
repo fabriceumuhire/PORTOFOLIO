@@ -35,7 +35,15 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build --if-present
-    - run: npm run coverage
-    - run: npm run coveralls
+    - name: Install dependencies
+      working-directory: backend/
+      run: npm install
+    - name: Install dependencies
+      working-directory: backend/
+      run: npm run build --if-present
+    - name: Install dependencies
+      working-directory: backend/
+      run: npm run coverage
+    - name: Install dependencies
+      working-directory: backend/
+      run: npm run coveralls
