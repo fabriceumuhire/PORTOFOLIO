@@ -1,0 +1,18 @@
+.env
+node_modules/
+package-lock.json
+.nyc_output/
+coverage/
+
+tmp/*
+src/tmp/*
+# Ignore node modules
+node_modules/*
+# Ignore .env file
+# Ignore coverage
+coverage/
+# Ignore nyc output
+.nyc_output/*
+.env
+package-lock.json
+../.vscode/
