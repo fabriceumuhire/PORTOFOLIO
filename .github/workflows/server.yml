@@ -45,6 +45,7 @@ jobs:
     - name: Run coverage
       working-directory: backend/
       run: npm run coverage
-    - name: Run coveralls
-      working-directory: backend/
-      run: npm run coveralls
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.REPO_TOKEN }}
