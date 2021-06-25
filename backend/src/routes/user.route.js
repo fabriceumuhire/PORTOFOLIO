@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { Authenticate } from '../middlewares/user.middleware';
+import { Authenticate, emailExist } from '../middlewares/user.middleware';
+import { registerValidation } from '../validators/user.validator';
 import {
   getUser,
   registerUser,
@@ -10,7 +11,7 @@ const userRouter = Router();
 
 userRouter.get('/', getUser);
 
-userRouter.post('/register', registerUser);
+userRouter.post('/register', registerValidation, emailExist, registerUser);
 
 userRouter.post('/login', Authenticate, loginUser);
 

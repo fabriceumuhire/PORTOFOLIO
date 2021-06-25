@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 import indexRouter from './routes';
 import server from './server';
 
-// import routes from './routes/index.js';
-
 dotenv.config();
 const app = express();
 const { PORT } = process.env;
@@ -41,7 +39,7 @@ app.use('/api/v1', indexRouter);
 
 app.listen(
   PORT,
-  console.log(`Server started at http://localhost:${PORT}/api`),
+  console.log(`Server started at http://localhost:${PORT}`),
 );
 
 export default app;

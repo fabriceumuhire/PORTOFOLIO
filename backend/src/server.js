@@ -8,9 +8,9 @@ config();
  */
 
 const server = async () => {
-  const { MONGO_URL, MONGO_URI_TEST, NODE_ENV } = process.env;
+  const { MONGO_URL, MONGO_URL_TEST, NODE_ENV } = process.env;
   const conn = await mongoose.connect(
-    NODE_ENV === 'test' ? MONGO_URI_TEST : MONGO_URL,
+    NODE_ENV === 'test' ? MONGO_URL_TEST : MONGO_URL,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
