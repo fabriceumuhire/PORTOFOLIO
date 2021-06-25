@@ -42,3 +42,9 @@ jobs:
       run: npm run test
       env:
         CI: true
+    - name: Run coverage
+      working-directory: backend/
+      run: npm run coverage
+    - name: Run coveralls
+      working-directory: backend/
+      run: npm run coveralls
