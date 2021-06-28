@@ -18,3 +18,13 @@ export const loginUser = {
   email: 'sysadm@hello.com',
   password: '12ggdsce',
 };
+
+export const wrongLoginUser = {
+  email: 'sys@hello.com',
+  password: '12ggdsce',
+};
+
+export const wrongLoginPass = {
+  email: 'sysadm@hello.com',
+  password: '12ggd',
+};
