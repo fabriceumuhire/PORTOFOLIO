@@ -1,5 +1,9 @@
 import { Router } from 'express';
-import { getAll, getOne, postOne } from '../controllers/query.controller';
+import {
+  getAll,
+  getOne,
+  postOne,
+} from '../controllers/query.controller';
 import articleValidation from '../validators/query.validator';
 
 const queryRouter = Router();
