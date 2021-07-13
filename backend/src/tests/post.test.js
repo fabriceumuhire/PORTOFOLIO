@@ -7,7 +7,13 @@ import Blog from '../models/blog.model';
 import server from '../server';
 import { tokenGenerator } from '../utils/auth.util';
 import { loginUser } from './mock/user.mock';
-import { newBlog, badBlog, updateBlog } from './mock/blog.mock';
+import {
+  newBlog,
+  badBlog,
+  updateBlog,
+  newComment,
+  badComment,
+} from './mock/blog.mock';
 
 chai.use(chaiHttp);
 chai.should();
@@ -109,6 +115,17 @@ describe('Article API', () => {
         });
       done();
     }).timeout(50000);
+    it('It should LIKE a BLOG', (done) => {
+      chai
+        .request(app)
+        .patch(`/api/v1/blogs/like/${blogId}`)
+        .end((error, res) => {
+          res.should.have.status(200);
+          res.should.have.property('status');
+          res.body.should.have.property('message');
+        });
+      done();
+    });
     it('It should GET a single blog', (done) => {
       chai
         .request(app)
@@ -117,6 +134,61 @@ describe('Article API', () => {
           res.should.have.status(200);
           res.should.have.property('status');
           res.body.should.have.property('message');
+        });
+      done();
+    });
+    it('It should COMMENT on a blog', (done) => {
+      chai
+        .request(app)
+        .post(`/api/v1/comments/${blogId}`)
+        .send(newComment)
+        .end((error, res) => {
+          res.should.have.status(201);
+          res.should.have.property('status');
+          res.body.should.have.property('message');
+        });
+      done();
+    });
+    it('It should NOT COMMENT on a blog', (done) => {
+      chai
+        .request(app)
+        .post(`/api/v1/comments/${blogId}`)
+        .send(badComment)
+        .end((error, res) => {
+          res.should.have.status(400);
+          res.should.have.property('status');
+        });
+      done();
+    });
+    it('It should NOT COMMENT on a blog', (done) => {
+      chai
+        .request(app)
+        .post(`/api/v1/comment/${blogId}`)
+        .send(newComment)
+        .end((error, res) => {
+          res.should.have.status(404);
+          res.should.have.property('status');
+        });
+      done();
+    });
+    it('It should GET COMMENTS', (done) => {
+      chai
+        .request(app)
+        .get(`/api/v1/comments/${blogId}`)
+        .end((error, res) => {
+          res.should.have.status(200);
+          res.should.have.property('status');
+          res.body.should.have.property('message');
+        });
+      done();
+    });
+    it('It should NOT COMMENT on a blog', (done) => {
+      chai
+        .request(app)
+        .get(`/api/v1/comment/${blogId}`)
+        .end((error, res) => {
+          res.should.have.status(404);
+          res.should.have.property('status');
         });
       done();
     });

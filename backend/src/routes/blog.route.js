@@ -5,6 +5,7 @@ import {
   postOne,
   updateOne,
   deleteOne,
+  likeOne,
 } from '../controllers/blog.controller';
 import blogValidation from '../validators/blog.validator';
 import {
@@ -22,6 +23,8 @@ blogRouter.post('/', tokenAuth, uploadImage, blogValidation, postOne);
 blogRouter.get('/:id', getOne);
 
 blogRouter.patch('/:id', tokenAuth, blogExists, updateOne);
+
+blogRouter.patch('/like/:id', blogExists, likeOne);
 
 blogRouter.delete('/:id', tokenAuth, blogExists, deleteOne);
 

@@ -13,3 +13,13 @@ export const updateBlog = {
   content:
     'Postman is a scalable API testing tool that quickly integrates into CI/CD pipeline. Here is an update of the blog.',
 };
+
+export const newComment = {
+  name: 'Sys Administrator',
+  message: 'Hello this is a test request.',
+};
+
+export const badComment = {
+  name: 'Sys Administrator',
+  message: 'Hello',
+};

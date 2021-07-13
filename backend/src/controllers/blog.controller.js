@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-unused-vars */
 import dotenv from 'dotenv';
 import cloudinary from 'cloudinary';
 import Blog from '../models/blog.model';
@@ -29,6 +31,7 @@ export const postOne = async (req, res) => {
 export const getOne = async (req, res) => {
   try {
     const article = await Blog.findOne({ _id: req.params.id });
+    const articleView = article.views++;
     return res.status(200).json({ message: article });
   } catch (error) {
     return res.status(404).json({ error: error.message });
@@ -65,4 +68,19 @@ export const deleteOne = async (req, res) => {
       .status(204)
       .json({ message: 'Article deleted successfully' });
   });
+};
+
+export const likeOne = async (req, res) => {
+  try {
+    const likeArticle = await Blog.findOneAndUpdate(
+      { _id: req.params.id },
+      { $inc: { likes: 1 } },
+    );
+    const article = await Blog.findOne({ _id: req.params.id });
+    return res
+      .status(200)
+      .json({ message: 'Liked message', article });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
 };

@@ -9,7 +9,7 @@ export const Authenticate = async (req, res, next) => {
   }
   const pass = await bcrypt.compare(req.body.password, user.password);
   if (!pass) {
-    return res.status(401).json({ message: 'Wrong password' });
+    return res.status(405).json({ message: 'Wrong password' });
   }
   next();
 };
