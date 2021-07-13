@@ -17,6 +17,12 @@ const BlogSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  views: { type: Number, default: 0 },
+  likes: { type: Number, default: 0 },
+  comments_count: { type: Number, default: 0 },
+  comments: [
+    { type: mongoose.Schema.Types.ObjectID, ref: 'Comment' },
+  ],
 });
 
 export default mongoose.model('Blog', BlogSchema);

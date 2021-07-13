@@ -79,7 +79,7 @@ describe('Register API', () => {
         .post('/api/v1/user/login')
         .send(wrongPassword)
         .end((error, res) => {
-          res.should.have.status(401);
+          res.should.have.status(405);
           res.should.have.property('status');
         });
       done();
