@@ -3,7 +3,12 @@ import chaiHttp from 'chai-http';
 import app from '../app';
 import User from '../models/user.model';
 import server from '../server';
-import { newUser, wrongUser, wrongPass, loginUser } from './mock/user.mock';
+import {
+  newUser,
+  wrongUser,
+  wrongPass,
+  loginUser,
+} from './mock/user.mock';
 
 chai.use(chaiHttp);
 chai.should();
@@ -107,15 +112,19 @@ describe('Register API', () => {
     });
     it('User should login', (done) => {
       // send request to the app
-      chai
-        .request(app)
-        .post('/api/v1/user/login')
-        .send(loginUser)
-        .end((error, res) => {
-          res.should.have.status(200);
-          res.should.have.property('status');
-        });
-      done();
+      try {
+        chai
+          .request(app)
+          .post('/api/v1/user/login')
+          .send(loginUser)
+          .end((error, res) => {
+            res.should.have.status(200);
+            res.should.have.property('status');
+          });
+        done();
+      } catch (error) {
+        return error.message[0];
+      }
     });
   });
 });

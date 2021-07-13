@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Joi from 'joi';
 
 const articleValidation = (req, res, next) => {
@@ -8,9 +9,9 @@ const articleValidation = (req, res, next) => {
     message: Joi.string().min(20).required(),
   });
   const options = { abortEarly: false };
-  const {error, value } = schema.validate(req.body, options);
+  const { error, value } = schema.validate(req.body, options);
   if (error) {
-    return res.status(400).send({ message: 'Invalid inputs'});
+    return res.status(400).send({ message: 'Invalid inputs' });
   }
   next();
 };

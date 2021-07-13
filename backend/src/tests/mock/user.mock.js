@@ -10,7 +10,7 @@ export const wrongUser = {
 };
 export const wrongPass = {
   name: 'Sys Admin7',
-  email: 'adminsysadm5hello.com',
+  email: 'adminsysadm@hello.com',
   password: '12ggr',
 };
 

@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
-import webtoken from 'jsonwebtoken';
 import User from '../models/user.model';
+import { tokenGenerator } from '../utils/auth.util';
 
 export const getUser = async (req, res) => {
   const user = await User.find();
@@ -26,8 +26,8 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    const wtoken = webtoken.sign({ _id: user._id }, process.env.JWT_SECRET);
-    return res.status(200).json({ user, token: wtoken });
+    const webToken = tokenGenerator(user);
+    return res.status(200).json({ user, token: webToken });
   } catch (error) {
     return res.status(500).json(error);
   }
