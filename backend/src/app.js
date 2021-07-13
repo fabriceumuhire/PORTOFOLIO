@@ -27,22 +27,6 @@ app.use(
   }),
 );
 
-// catch 400
-/* app.use((err, req, res, next) => {
-  res.status(400).send(`Error: ${res.originUrl} not found`);
-  next();
-}); */
-
-// catch 500
-/* app.use((err, req, res, next) => {
-  res.status(500).send(`Error: ${err}`);
-  next();
-}); */
-
-/**
- * Register the routes
- */
-
 app.use('/api/v1', indexRouter);
 
 app.listen(

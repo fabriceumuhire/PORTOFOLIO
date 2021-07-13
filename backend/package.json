@@ -4,7 +4,7 @@
   "description": "My brand backend with express& mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js --exec --presets env",
+    "start": "node src/app.js  --presets env",
     "start:dev": "NODE_ENV=development nodemon --exec babel-node src/app.js",
     "test": "cross-env  NODE_ENV=test mocha */tests/**.test.js --require @babel/register --exit --timeout 60000",
     "coverage": "nyc npm run test",

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="./css/blogDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Header section -->
+    <section class="header">
+        <img src="./img/logo" alt="logo image">
+        <div class="menu">
+            <div class="toggle">
+                <i class="fas fa-times close-btn"></i>
+            </div>
+            <a href="./index.html#landing">Home</a>
+            <a href="./index.html#about-us">About Us</a>
+            <a href="#blogs">Blogs</a>
+            <a href="./index.html#portfolio">Portfolio</a>
+            <a href="./index.html#contact-us">Contact Us</a>
+        </div>
+        <div class="toggle">
+            <i class="fas fa-bars menu-btn"></i>
+        </div>
+    </section>
+    <section class="blogs-read" id='blogs'>
+        <div class="blog-container">
+            <div class="blog-image">
+                <img src="" class="blogs-image"alt="Image">
+            </div>
+            <div class="blog-header">
+                <div class="info"><h2 class="blog-title"></h2></div>
+            </div>
+            <div class="blog-detail">
+                <div class="detail"><p class="blog-content"></p></div>
+                <div class="blog-icon">
+                    <div class="icon">
+                        <span class="far fa-heart like-icon" onclick="addLike()"></span>
+                        <span class="icon-number" id="likes">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class=comment-count>
+              <h3>Comments: <a id="comment-count"></a></h3>
+            </div>
+            <div class="comments">
+            </div>
+            <div class="content">
+              <h2>Send comment</h2>
+              <form id="comment_form">
+                <div class="alert alert-success"></div>
+                <input type="text" class="field" name="name" id="name" placeholder="Your Full Names">
+                <textarea type="text" class="field area" name="message" id="message" placeholder="Message..." required></textarea>
+                <button type="submit" class="btn" id="submit">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#landing">Home</a></li>
+              <li><a href="#about-us">About us</a></li>
+              <li><a href="#blogs">Blogs</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#contact-us">Contact Us</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <p><i class="fa fa-copyright"></i>2021 Fabrice, All rights reserved</p>
+          </div>
+        </div>
+    </section>
+    <script>
+        const menu = document.querySelector('.menu');
+        const menuBtn = document.querySelector('.menu-btn');
+        const closeBtn = document.querySelector('.close-btn');
+        const allBlogs = document.querySelectorAll('.blog');
+  
+        menuBtn.addEventListener('click', () => {
+          menu.classList.add('active');
+        });
+  
+        closeBtn.addEventListener('click', () => {
+          menu.classList.remove('active');
+        });
+      </script>
+</body>
+<script type="text/javascript" src="./renders/init.js"></script>
+<script type="text/javascript" src="./renders/blog/blogDetails.js"></script>
+</html>
