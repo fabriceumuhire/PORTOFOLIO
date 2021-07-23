@@ -25,7 +25,7 @@ function loadArticle() {
                                     <div class="comment-body">
                                         ${comment.message}
                                     </div>
-                                </div>
+                                </div><hr>
                     `
                 })
             }

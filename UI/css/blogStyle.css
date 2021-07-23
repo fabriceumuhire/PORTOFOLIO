@@ -94,8 +94,9 @@ a {
 .blogs .blog-card .blog{
     /* position: relative; */
     width: auto;
+    min-width: 33%;
     height: 320px;
-    margin: 40px 20px;
+    margin: 40px 30px;
     border-radius: 10px;
     background-color: #ffffff;
     transition: 0.3s;
