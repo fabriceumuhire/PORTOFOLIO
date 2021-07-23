@@ -93,7 +93,7 @@ a {
 
 .blogs .blog-card .blog{
     /* position: relative; */
-    width: 30%;
+    width: auto;
     height: 320px;
     margin: 40px 20px;
     border-radius: 10px;

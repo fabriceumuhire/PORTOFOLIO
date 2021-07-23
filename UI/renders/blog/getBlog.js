@@ -7,7 +7,7 @@ function selectArticles() {
             return response.json();
         })
         .then(result => {
-            var latestBlogs = result.message.slice(1,4).reverse();
+            var latestBlogs = result.message.slice(0,3).reverse();
             console.log(latestBlogs);
             latestBlogs.forEach(article => {
                 document.getElementsByClassName("blog-card")[0].innerHTML += `

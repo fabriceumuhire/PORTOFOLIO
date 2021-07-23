@@ -171,27 +171,6 @@ describe('Article API', () => {
         });
       done();
     });
-    it('It should GET COMMENTS', (done) => {
-      chai
-        .request(app)
-        .get(`/api/v1/comments/${blogId}`)
-        .end((error, res) => {
-          res.should.have.status(200);
-          res.should.have.property('status');
-          res.body.should.have.property('message');
-        });
-      done();
-    });
-    it('It should NOT COMMENT on a blog', (done) => {
-      chai
-        .request(app)
-        .get(`/api/v1/comment/${blogId}`)
-        .end((error, res) => {
-          res.should.have.status(404);
-          res.should.have.property('status');
-        });
-      done();
-    });
     it('It should NOT DELETE a single article', (done) => {
       chai
         .request(app)

@@ -15,8 +15,8 @@ function loadArticle() {
             document.getElementsByClassName("blog-title")[0].innerHTML = data.title
             document.getElementsByClassName("blogs-image")[0].setAttribute("src", data.image)
             document.getElementById("likes").innerHTML = data.likes
-            console.log(data.comments_count);
-            document.getElementById("comment-count").innerHTML = data.comments_count
+            console.log(data.comments);
+            document.getElementById("comment-count").innerHTML = data.comments.length
             if (data.comments && data.comments.length > 0) {
                 data.comments.forEach(comment => {
                     document.getElementsByClassName("comments")[0].innerHTML += `

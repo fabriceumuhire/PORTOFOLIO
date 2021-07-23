@@ -23,7 +23,7 @@ function selectArticles() {
                             </div>
                             <div class="icon">
                                 <i class="far fa-comment-alt"></i>
-                                <span class="icon-number">${article.comments_count}</span>
+                                <span class="icon-number">${article.comments.length}</span>
                             </div>
                             <div class="icon">
                                 <i class="far fa-eye" aria-hidden="true"></i>

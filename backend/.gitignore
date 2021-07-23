@@ -17,3 +17,4 @@ coverage/
 package-lock.json
 ../.vscode/
 rest_test.http
+/dist

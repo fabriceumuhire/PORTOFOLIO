@@ -1,1 +1,1 @@
-const BASE_URL = "http://localhost:3000/api/v1"
+const BASE_URL = "https://techu-blog.herokuapp.com/api/v1"
