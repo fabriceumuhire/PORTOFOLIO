@@ -25,7 +25,11 @@ describe('Queries API', () => {
       assert.equal(post.status, 201);
       post.should.have.property('status');
       post.body.should.have.property('message');
-      queryId = await post.body.message._id;
+      post.body.should.be.a('object');
+      post.body.should.have
+        .property('message')
+        .eql('Query submitted successfully!');
+      queryId = await post.body.queries._id;
     });
     it('It should NOT POST a query', (done) => {
       chai

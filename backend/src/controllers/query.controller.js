@@ -13,7 +13,9 @@ export const postOne = async (req, res) => {
     message: req.body.message,
   });
   const queries = await query.save();
-  return res.status(201).json({ message: queries });
+  return res
+    .status(201)
+    .json({ message: 'Query submitted successfully!', queries });
 };
 
 export const getOne = async (req, res) => {

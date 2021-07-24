@@ -30,8 +30,10 @@ export const postOne = async (req, res) => {
 
 export const getOne = async (req, res) => {
   try {
-    const article = await Blog.findOne({ _id: req.params.id });
-    const articleView = article.views++;
+    const article = await Blog.findOne({
+      _id: req.params.id,
+    }).populate('comments');
+    await article.views++;
     return res.status(200).json({ message: article });
   } catch (error) {
     return res.status(404).json({ error: error.message });

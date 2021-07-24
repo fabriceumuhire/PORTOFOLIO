@@ -1,0 +1,1 @@
+const BASE_URL = "https://techu-blog.herokuapp.com/api/v1"

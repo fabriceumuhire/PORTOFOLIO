@@ -10,9 +10,9 @@ const CommentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    article: {
+    blog: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Article',
+      ref: 'Blog',
     },
   },
   {

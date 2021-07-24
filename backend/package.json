@@ -4,7 +4,6 @@
   "description": "My brand backend with express& mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js --exec --presets env",
     "start:dev": "NODE_ENV=development nodemon --exec babel-node src/app.js",
     "test": "cross-env  NODE_ENV=test mocha */tests/**.test.js --require @babel/register --exit --timeout 60000",
     "coverage": "nyc npm run test",
@@ -12,7 +11,9 @@
     "release": "npm run clean && npm run build && npm run serve",
     "clean": "rm -rf dist && mkdir dist",
     "builders": "babel . -s -D -d dist --presets env --ignore node_modules",
-    "serve": "node dist/app.js"
+    "serve": "node dist/app.js",
+    "build": " babel src --out-dir dist",
+    "start": "npm run build && node ./dist/app.js"
   },
   "keywords": [
     "MY BRAND"
@@ -21,6 +22,11 @@
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cloudinary": "^1.26.1",
@@ -37,11 +43,6 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.6",
-    "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/register": "^7.14.5",
     "chai": "^4.3.3",
     "chai-http": "^4.3.0",
     "eslint": "^7.21.0",

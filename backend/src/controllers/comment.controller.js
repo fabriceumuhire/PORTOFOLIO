@@ -1,11 +1,11 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
-import Article from '../models/blog.model';
+import Blog from '../models/blog.model';
 import Comment from '../models/comment.model';
 
-export const postOne = async (req, res) => {
+const postOne = async (req, res) => {
   try {
-    const article = await Article.findOne({ _id: req.params.id });
+    const article = await Blog.findOne({ _id: req.params.id });
     if (!article) {
       return res.status(404).json({ message: 'Article not found' });
     }
@@ -23,11 +23,4 @@ export const postOne = async (req, res) => {
   }
 };
 
-export const getAll = async (req, res) => {
-  const article = await Article.findOne({ _id: req.params.id });
-  if (!article) {
-    return res.status(404).json({ message: 'Article not found' });
-  }
-  const comments = await Comment.find();
-  return res.status(200).json({ message: comments });
-};
+export default postOne;
