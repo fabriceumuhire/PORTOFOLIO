@@ -352,6 +352,15 @@ a {
         width: 90%;
     }
 
+    .blogs-read .blog-container .blog-header .info h2 {
+        font-size: 28px;
+    }
+
+    .blogs-read .blog-container .blog-detail .detail p {
+        font-size: 14px;
+
+    }
+
     .footer {
         padding: 40px 40px;
     }

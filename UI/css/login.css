@@ -1,0 +1,105 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* min-height: 100vh; */
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+.login {
+    background-color: #739FE1;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 80px 100px;
+}
+
+.login .login-details {
+    max-width: 60%;
+    min-height: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+.login .login-details .content-info {
+    height: 100%;
+    background: url(../img/login.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.login .login-details .content {
+    padding: 25px 40px;
+}
+
+.login .login-details .content h2 {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.login .login-details .content .field {
+    width: 100%;
+    padding: 15px 10px;
+    outline: none;
+    border: 2px solid rgba(0,0,0,0);
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230, 0.6);
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: .3s;
+}
+
+.login .login-details .content .field:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.login .login-details .content .field:focus {
+    background-color: #f7f7f7;
+    border: 2px solid rgb(30, 85, 250, 0.47);
+}
+
+.login .login-details .content .btn {
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #739FE1;
+    color: #f7f7f7;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 920px){
+    .login {
+        padding: 40px 20px;
+    }
+    .login .login-details {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .login .login-details .content-info {
+        height: 250px;
+    }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH U</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css"> -->
+  </head>
+  <body>
+    <!-- Header section -->
+    <section class="header">
+      <img src="./img/logo" alt="logo image">
+      <div class="menu">
+        <div class="toggle">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+          <a href="#landing">Home</a>
+          <a href="#blogs">Blogs</a>
+          <a href="#contact-us">Contact Us</a>
+      </div>
+      <div class="toggle">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </section>
+    <!-- Blog section-->
+    <section class="blogs" id='blogs'>
+      <h1>BLOGS</h1>
+      <div class="blog-cards">
+      </div>
+      <div class="blog-form">
+          <h2>Add Blog</h2>
+          <form autocomplete="off" id="blog_form">
+            <div class="alert alert-success"></div>
+            <input type="text" class="field" name="title" id="title" placeholder="Blog Title">
+            <textarea type="text" class="field area" name="content" id="content" placeholder="Blog content..."></textarea>
+            <input type="file" class="upload" id="image">
+            <button type="submit" class="btn" id="submit">Send</button>
+          </form>
+      </div>
+    </section>
+    <!-- Contact US section-->
+    <section class="contact-us" id="contact-us">
+      <div class="contact">
+        <div class="content-info"></div>
+        <div class="content">
+          <h2>Contact Us</h2>
+          <form id="contact_form">
+            <div class="alert alert-success"></div>
+            <input type="text" class="field" name="name" id="name" placeholder="Your Full Names">
+            <input type="email" class="field" name="email" id="email" placeholder="Your Email" required>
+            <input type="text" class="field" name="subject" id="subject" placeholder="Subject">
+            <textarea type="text" class="field area" name="message" id="message" placeholder="Message..." required></textarea>
+            <button type="submit" class="btn" id="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#landing">Home</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p><i class="fa fa-copyright"></i>2021 Fabrice, All rights reserved</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      const menu = document.querySelector('.menu');
+      const menuBtn = document.querySelector('.menu-btn');
+      const closeBtn = document.querySelector('.close-btn');
+      const allBlogs = document.querySelectorAll('.blog-card')[0];
+      const blog = allBlogs.querySelectorAll('.blog');
+
+      menuBtn.addEventListener('click', () => {
+        menu.classList.add('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    </script>
+    <!-- <script src="./renders/ckeditor5/ckeditor.js"></script> -->
+    <!-- <script>
+        ClassicEditor.create(document.querySelector('#content'));
+    </script> -->
+  </body>
+  <script type="text/javascript" src="./renders/init.js"></script>
+  <script type="text/javascript" src="./renders/admin.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="trumbowyg/dist/trumbowyg.min.js"></script> -->
+  <!-- <script type="text/javascript" src="./renders/blog/getBlog.js"></script> -->
+</html>
