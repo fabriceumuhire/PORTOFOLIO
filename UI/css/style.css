@@ -63,7 +63,8 @@ a {
 
 .header .toggle {
     color: #f7f7f7;
-    font-size: 25px;
+    font-size: 35px;
+    margin-right: -25px;
     cursor: pointer;
     display: none;
 }
@@ -607,7 +608,8 @@ th {
 
 @media screen and (max-width: 920px){
     .header img {
-        margin-left: -40px;
+        height: 100px;
+        margin-left: -50px;
     }
     .header .toggle{
         display: block;
@@ -618,7 +620,7 @@ th {
         background-color: #739FE1;
         flex-direction: column;
         width: 100%;
-        height: calc(100vh - 320px);
+        height: calc(100vh - 140px);
         top: 0;
         right: -100%;
         padding: 10px 20px;
@@ -633,7 +635,7 @@ th {
         position: absolute;
         top: 0;
         left: 0;
-        margin: 025px;
+        margin: 25px;
     }
 
     .header .menu a{
@@ -644,11 +646,12 @@ th {
     }
 
     .landing {
-        min-height: 60vh;
+        min-height: 90vh;
     }
 
     .landing .home {
         padding: 0 40px;
+        margin-top: 80%;
         font-size: 24px;
     }
 
