@@ -97,6 +97,10 @@
         menuBtn.addEventListener('click', () => {
           menu.classList.add('active');
         });
+
+        menu.addEventListener('click', () => {
+          menu.classList.remove('active');
+        });
   
         closeBtn.addEventListener('click', () => {
           menu.classList.remove('active');
