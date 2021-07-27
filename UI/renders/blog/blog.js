@@ -14,7 +14,9 @@ function selectArticles() {
                             <img src="${article.image}" alt="Image">
                         </div>
                         <div class="blog-info">
-                            <div class="info">${article.title}</div>
+                            <div class="info">
+                                <a href="blog_details.html?blogs=${article._id}">${article.title}</a>
+                            </div>
                         </div>
                         <div class="card-icons">
                             <div class="icon">
