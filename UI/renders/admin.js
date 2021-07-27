@@ -2,7 +2,7 @@ window.onload = () => {
     if(!sessionStorage.token) {
         location.href = './login.html';
     } else {
-        console.log(sessionStorage.token);
+        console.log(sessionStorage.name);
     }
 }
 
@@ -74,6 +74,7 @@ function selectArticles() {
         });
 }
 
+
 document.querySelector('.blog-cards').addEventListener('click', (e) => {
     e.preventDefault();
     const title = document.getElementById("title");
@@ -88,6 +89,7 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
         const parent = e.target.parentElement.parentElement.parentElement;
         let titleContent = parent.querySelector('.info').textContent;
         let contentDetails = parent.querySelector('.content-blog').textContent;
+        contentData = CKEDITOR.instances.content.setData(contentDetails);
         title.value = titleContent;
         content.value = contentDetails;
     }
@@ -97,8 +99,7 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
         submitBtn.innerHTML = "Updating blog....";
         const formData = new FormData();
         formData.append('title', title.value);
-        formData.append('content', content.value);
-        console.log(blogId);
+        formData.append('content', CKEDITOR.instances.content.getData());
         if (file)
             formData.append("image", file)
         fetch(`${BASE_URL}/blogs/${blogId}`, {
@@ -114,6 +115,7 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
                     const alertSuccess = document.getElementsByClassName("alert-success")[0];
                     alertSuccess.innerHTML = "Blog updated successfully";
                     alertSuccess.style.display = "block";
+                    document.getElementById("content").reset();
                 } else {
                     if (response.status == 401)
                         throw Error("Error")
@@ -128,81 +130,48 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
     })
 });
 
+// Defining async function
+async function getapi(url) {
+    
+    // Storing response
+    const response = await fetch(url);
+    
+    // Storing data in form of JSON
+    var data = await response.json();
 
-selectArticles();
-
-/* const blogList = document.querySelector('.blog-card');
-const submitBtn = document.getElementById("submit");
-let blogs = '';
-
-const renderBlogs = (blogs) => {
-    blogs.reverse().forEach(blog => {
-        blogs += `
-            <div class="blog" data-id="${blog._id}">
-                <div class="thumbnail">
-                    <img src="${blog.image}" alt="Image">
-                </div>
-                <div class="blog-info">
-                    <div class="info">
-                        <a href="blog_details.html?blogs=${blog._id}">${blog.title}</a>
-                    </div>
-                    <div class="info-content">
-                        <p>${blog.content}</p>
-                    </div>
-                </div>
-                <div class="blog-details">
-                    <div class="btn">
-                        <a href="#" id="edit-blog">Edit</a>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-    blogList.innerHTML = blogs;
+    if (response) {
+        hideloader();
+    }
+    show(data);
+}
+// Calling that async function
+getapi(`${BASE_URL}/query`);
+  
+// Function to hide the loader
+function hideloader() {
+    document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+    let tab = 
+        `<tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Message</th>
+         </tr>`;
+    
+    // Loop to access all rows 
+    for (let r of data.message) {
+        tab += `<tr> 
+    <td>${r.name} </td>
+    <td>${r.email}</td>
+    <td>${r.subject}</td> 
+    <td>${r.message}</td>          
+</tr>`;
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById("contact-query").innerHTML = tab;
 }
 
-fetch(`${BASE_URL}/blogs`)
-    .then(response => response.json())
-    .then(result => renderBlogs(result.message))
-blogList.addEventListener('click', (e) => {
-    e.preventDefault();
-    let editBtn = e.target.id == 'edit-blog';
-    let blogId = e.target.parentElement.parentElement.parentElement.dataset.id;
-    
-    if(editBtn) {
-        const parent = e.target.parentElement.parentElement.parentElement;
-        let titleContent = parent.querySelector('.info > a').textContent;
-        let contentDetails = parent.querySelector('.info-content').textContent;
-        /* console.log(contentDetails);
-        title.value = titleContent;
-        content.value = contentDetails;
-        /* ClassicEditor
-            .create(content)
-            .then(editor => {
-                editor.setData(contentDetails);
-            })
-            /* .then(content.style.visibility="hidden")
-            .catch(error => {
-                console.log(error);
-            })
-    }
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        fetch(`${BASE_URL}/blogs/${blogId}`, {
-            method: "PATCH",
-            headers: {
-                Authorization: sessionStorage.token
-            },
-            body: JSON.stringify({
-                title: title.value,
-                content: content.value,
-            })
-        })
-        .then(response => {
-            if(response.ok) {
-                console.log(response)
-            }
-        })
-    })
-
-}) */
+selectArticles();
