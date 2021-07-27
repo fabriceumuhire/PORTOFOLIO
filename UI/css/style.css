@@ -72,7 +72,10 @@ a {
     position: relative;
     width: 100%;
     min-height: 80vh;
-    background-color: #f7f7f7;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,8 +83,9 @@ a {
 
 .landing .home {
     padding: 0 20px;
-    font-size: 24px;
-    color: #191919;
+    margin-top: 200px;
+    font-size: 32px;
+    color: #f7f7f7;
     letter-spacing: 5px;
 }
 
@@ -94,7 +98,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 50px;
 }
 
 .about .about-passion {
@@ -102,8 +106,8 @@ a {
     height: auto;
     background-color: #f7f7f7;
     border-radius: 10px;
-    margin: 40px 10px;
-    padding: 30px 20px;
+    margin: 30px 10px;
+    padding: 20px 20px;
 }
 
 .about .about-passion h2 {
@@ -117,7 +121,7 @@ a {
 
 .about .about-fav {
     width: 60%;
-    padding: 20px 40px;
+    padding: 50px 20px;
 }
 
 .blogs {
@@ -612,7 +616,8 @@ a {
     }
 
     .landing .home {
-        padding: 0 60px;
+        padding: 0 40px;
+        font-size: 24px;
     }
 
     .about .about-passion {
