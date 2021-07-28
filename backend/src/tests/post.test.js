@@ -115,6 +115,23 @@ describe('Article API', () => {
         });
       done();
     }).timeout(50000);
+    it('It should NOT UPDATE a BLOG', (done) => {
+      chai
+        .request(app)
+        .patch(`/api/v1/blogs/${blogId}`)
+        .field(updateBlog)
+        .attach(
+          'image',
+          `${path.join(__dirname, '../uploads/img/review2.jpg')}`,
+        )
+        .type('form')
+        .end((error, res) => {
+          res.should.have.status(401);
+          res.should.have.property('status');
+          res.body.should.have.property('message');
+        });
+      done();
+    }).timeout(50000);
     it('It should LIKE a BLOG', (done) => {
       chai
         .request(app)
@@ -178,6 +195,15 @@ describe('Article API', () => {
         .set('Authorization', token)
         .end((error, res) => {
           res.should.have.status(404);
+        });
+      done();
+    });
+    it('It should NOT DELETE a single article', (done) => {
+      chai
+        .request(app)
+        .delete(`/api/v1/blogs/${blogId}`)
+        .end((error, res) => {
+          res.should.have.status(401);
         });
       done();
     });

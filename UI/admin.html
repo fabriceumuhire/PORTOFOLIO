@@ -7,7 +7,6 @@
     <link rel='shortcut icon' type='image/x-icon' href='./img/logo.ico' />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css"> -->
     <script src="./renders/ckeditor/ckeditor.js"></script>
   </head>
   <body>
@@ -59,7 +58,7 @@
             <li><a href="#landing">Home</a></li>
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#contact-us">Contact Us</a></li>
-            <li><a href="./login.html">Login</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -80,7 +79,6 @@
       const menuBtn = document.querySelector('.menu-btn');
       const closeBtn = document.querySelector('.close-btn');
       const allBlogs = document.querySelectorAll('.blog-card')[0];
-      /* const blog = allBlogs.querySelectorAll('.blog'); */
 
       menuBtn.addEventListener('click', () => {
         menu.classList.add('active');

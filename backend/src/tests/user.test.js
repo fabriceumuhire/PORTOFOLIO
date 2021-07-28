@@ -9,6 +9,7 @@ import {
   wrongPass,
   loginUser,
 } from './mock/user.mock';
+import { tokenGenerator } from '../utils/auth.util';
 
 chai.use(chaiHttp);
 chai.should();
@@ -118,6 +119,7 @@ describe('Register API', () => {
           .post('/api/v1/user/login')
           .send(loginUser)
           .end((error, res) => {
+            token = tokenGenerator(res.body);
             res.should.have.status(200);
             res.should.have.property('status');
           });

@@ -8,13 +8,9 @@ export const tokenAuth = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'No authorization' });
   }
-  try {
-    const verification = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = verification;
-    next();
-  } catch (error) {
-    return res.status(401).json({ error: error.message });
-  }
+  const verification = jwt.verify(token, process.env.JWT_SECRET);
+  req.user = verification;
+  next();
 };
 
 export const tokenGenerator = (user) => {
