@@ -20,6 +20,8 @@ document.getElementById("login_form").addEventListener("submit", function (event
         })
         .then(result => {
             const data = result.user;
+            const token = result.token;
+            localStorage.setItem('token', token);
             document.getElementById("login_form").reset();
             sessionStorage.name = data.name;
             sessionStorage.token = result.token;

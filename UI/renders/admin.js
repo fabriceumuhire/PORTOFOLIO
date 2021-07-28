@@ -1,9 +1,15 @@
 window.onload = () => {
-    if(!sessionStorage.token) {
+    if(!localStorage.getItem("token")) {
         location.href = './login.html';
     } else {
-        console.log(sessionStorage.name);
+        console.log("POST A BLOG");
     }
+}
+
+function logout() {
+    localStorage.clear();
+    localStorage.removeItem("token")
+    window.location = "./login.html"
 }
 
 document.getElementById("blog_form").addEventListener("submit", function (event) {
@@ -20,7 +26,7 @@ document.getElementById("blog_form").addEventListener("submit", function (event)
     formData.append('image', image.files[0]);
     console.log(image.files[0]);
     fetch(`${BASE_URL}/blogs`, {method: "POST", body: formData, headers: {
-        Authorization: sessionStorage.token
+        Authorization: localStorage.getItem("token")
     }})
         .then( response=> {
             if (response.ok) {
@@ -105,7 +111,7 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
         fetch(`${BASE_URL}/blogs/${blogId}`, {
             method: "PATCH",
             headers: {
-                Authorization: sessionStorage.token
+                Authorization: localStorage.getItem("token")
             },
             body: formData
         })

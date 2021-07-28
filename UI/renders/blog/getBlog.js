@@ -34,5 +34,4 @@ function selectArticles() {
         });
 }
 
-/* <div class="details">${article.content}</div> */
 selectArticles();
