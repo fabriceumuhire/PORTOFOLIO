@@ -24,7 +24,6 @@ document.getElementById("blog_form").addEventListener("submit", function (event)
     formData.append('title', title.value);
     formData.append('content', content.value);
     formData.append('image', image.files[0]);
-    console.log(image.files[0]);
     fetch(`${BASE_URL}/blogs`, {method: "POST", body: formData, headers: {
         Authorization: localStorage.getItem("token")
     }})

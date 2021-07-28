@@ -42,7 +42,6 @@ loadArticle();
 function addLike() {
     fetch(`${BASE_URL}/blogs/like/${blog_id}`, {method: "PATCH"})
         .then(response => {
-            console.log(response)
             if (response.ok) {
                 const likes = document.getElementById("likes");
                 likes.innerText = Number(likes.innerText) + 1
