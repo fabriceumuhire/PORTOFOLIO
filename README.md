@@ -4,6 +4,6 @@
 ![Server CI](https://github.com/fabriceumuhire/PORTOFOLIO/workflows/Server%20CI/badge.svg?branch=master)
 
 
-### Visit my brand
+## Visit my brand
 
-# TECH U(https://techu.netlify.app/)
+### [TECH U](https://techu.netlify.app/)
