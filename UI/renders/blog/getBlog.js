@@ -8,7 +8,6 @@ function selectArticles() {
         })
         .then(result => {
             var latestBlogs = result.message.reverse().slice(0, 3);
-            console.log(latestBlogs);
             latestBlogs.forEach(article => {
                 document.getElementsByClassName("blog-card")[0].innerHTML += `
                      <div class="blog">
