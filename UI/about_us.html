@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH U</title>
+    <link rel='shortcut icon' type='image/x-icon' href='./img/logo.ico' />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
+    <!-- Header section -->
+    <section class="header">
+      <img src="./img/logo" alt="logo image">
+      <div class="menu">
+        <div class="toggle">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+          <a href="./index.html">Home</a>
+          <a href="#about-us">About Us</a>
+          <a href="./index.html#blogs">Blogs</a>
+          <a href="./index.html#portfolio">Portfolio</a>
+          <a href="./index.html#contact-us">Contact Us</a>
+      </div>
+      <div class="toggle">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </section>
+     <!-- About section-->
+    <section class="about" id="about-us">
+      <div class="about-passion">
+        <h2>About Me</h2>
+        <p>
+          Fabrice is a  software developer experienced in web applications development.<br/>
+          He has knowledge of HTML,CSS, JavaScript, NodeJS, React and Python.<br/><br/>
+          Among other things, Fabrice is experienced in telecom industry which extends from System Support to Planning for Charging System and Value added services.<br/>
+        </p>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#about-us">About us</a></li>
+            <li><a href="./index.html#blogs">Blogs</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="./index.html#contact-us">Contact Us</a></li>
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p><i class="fa fa-copyright"></i>2021 Nathan Inc., All rights reserved</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      const menu = document.querySelector('.menu');
+      const menuBtn = document.querySelector('.menu-btn');
+      const closeBtn = document.querySelector('.close-btn');
+
+      menuBtn.addEventListener('click', () => {
+        menu.classList.add('active');
+      });
+
+      menu.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    </script>
+  </body>
+</html>
