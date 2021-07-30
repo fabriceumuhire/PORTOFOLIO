@@ -33,6 +33,9 @@ export const getOne = async (req, res) => {
     const article = await Blog.findOne({
       _id: req.params.id,
     }).populate('comments');
+    if (!article) {
+      return res.status.json({ error: 'No blog found!' });
+    }
     article.views++;
     await article.save();
     return res.status(200).json({ message: article });
