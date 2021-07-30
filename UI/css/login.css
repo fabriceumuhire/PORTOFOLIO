@@ -90,6 +90,11 @@ body {
     border-radius: 5px;
 }
 
+.login .login-details .content .home {
+    padding: 20px;
+    color: #191919;
+}
+
 @media screen and (max-width: 920px){
     .login {
         padding: 40px 20px;
