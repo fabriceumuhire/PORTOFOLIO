@@ -35,17 +35,6 @@
         <h1>A Software Developer<span></span></h1>
     </div>
     </section>
-    <!-- About section-->
-    <section class="about" id="about-us">
-      <div class="about-passion">
-        <h2>About Me</h2>
-        <p>
-          Fabrice is a  software developer experienced in web applications development.<br/>
-          He has knowledge of HTML,CSS, JavaScript, NodeJS, React and Python.<br/><br/>
-          Among other things, Fabrice is experienced in telecom industry which extends from System Support to Planning for Charging System and Value added services.<br/>
-        </p>
-      </div>
-    </section>
     <!-- Blog section-->
     <section class="blogs" id='blogs'>
       <h1>BLOGS</h1>
@@ -72,6 +61,17 @@
         </div>
       </div>
     </section>
+     <!-- About section-->
+    <!-- <section class="about" id="about-us">
+      <div class="about-passion">
+        <h2>About Me</h2>
+        <p>
+          Fabrice is a  software developer experienced in web applications development.<br/>
+          He has knowledge of HTML,CSS, JavaScript, NodeJS, React and Python.<br/><br/>
+          Among other things, Fabrice is experienced in telecom industry which extends from System Support to Planning for Charging System and Value added services.<br/>
+        </p>
+      </div>
+    </section> -->
     <section class="footer">
       <div class="row">
         <div class="footer-col">
@@ -117,7 +117,7 @@
         menu.classList.remove('active');
       });
       document.addEventListener('DOMContentLoaded', () => {
-        var numOfBlogs = 3;
+        var numOfBlogs = 9;
         for (let i = 0; i < allBlogs.length; i++) {
           if (i > numOfBlogs - 1) {
             allBlogs[i].style.display = "none";
