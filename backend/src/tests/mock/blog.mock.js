@@ -10,6 +10,7 @@ export const badBlog = {
 };
 
 export const updateBlog = {
+  title: 'JS Performance solution Array testing-Updated',
   content:
     'Postman is a scalable API testing tool that quickly integrates into CI/CD pipeline. Here is an update of the blog.',
 };

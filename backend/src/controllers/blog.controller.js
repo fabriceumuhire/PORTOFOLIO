@@ -33,7 +33,11 @@ export const getOne = async (req, res) => {
     const article = await Blog.findOne({
       _id: req.params.id,
     }).populate('comments');
-    await article.views++;
+    if (!article) {
+      return res.status.json({ error: 'No blog found!' });
+    }
+    article.views++;
+    await article.save();
     return res.status(200).json({ message: article });
   } catch (error) {
     return res.status(404).json({ error: error.message });
@@ -43,12 +47,8 @@ export const getOne = async (req, res) => {
 export const updateOne = async (req, res) => {
   const articles = await Blog.findOne({ _id: req.params.id });
   try {
-    if (req.body.title) {
-      articles.title = req.body.title;
-    }
-    if (req.body.content) {
-      articles.content = req.body.content;
-    }
+    articles.title = req.body.title;
+    articles.content = req.body.content;
     const article = await articles.save();
     return res.status(200).json({ message: article });
   } catch (error) {
@@ -58,13 +58,6 @@ export const updateOne = async (req, res) => {
 
 export const deleteOne = async (req, res) => {
   cloudinary.v2.uploader.destroy(req.params.publicId, async () => {
-    /* try {
-            await Blog.findOne({ _id: req.params.id });
-            res.status(200);
-        } catch (error) {
-            res.status(404);
-            res.send({error: "Article not found"});
-        } */
     await Blog.deleteOne({ _id: req.params.id });
     return res
       .status(204)
