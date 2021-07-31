@@ -28,3 +28,8 @@ export const wrongLoginPass = {
   email: 'sysadm@hello.com',
   password: '12ggd',
 };
+
+export const wrongPassword = {
+  email: 'sysadm@hello.com',
+  password: 'passport123',
+};

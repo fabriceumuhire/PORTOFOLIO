@@ -62,7 +62,6 @@ describe('Register API', () => {
         .post('/api/v1/user/register')
         .send(newUser)
         .end((error, res) => {
-          res.body.should.have.property('error');
           res.should.have.status(400);
           res.should.have.property('status');
           res.body.should.have.property('error');
