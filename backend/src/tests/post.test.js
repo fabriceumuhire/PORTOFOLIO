@@ -76,15 +76,19 @@ describe('Article API', () => {
       done();
     });
     it('It should GET all articles', (done) => {
-      chai
-        .request(app)
-        .get('/api/v1/blogs')
-        .end((error, res) => {
-          res.should.have.status(200);
-          res.body.should.have.property('message');
-          res.should.have.property('status');
-        });
-      done();
+      try {
+        chai
+          .request(app)
+          .get('/api/v1/blogs')
+          .end((error, res) => {
+            res.should.have.status(200);
+            res.body.should.have.property('message');
+            res.should.have.property('status');
+          });
+        done();
+      } catch (error) {
+        return error.message[0];
+      }
     });
     it('It should NOT GET all articles', (done) => {
       chai
