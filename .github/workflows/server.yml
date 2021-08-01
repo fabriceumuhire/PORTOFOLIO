@@ -51,8 +51,3 @@ jobs:
     - name: Coveralls
       working-directory: backend/
       run: npm run coveralls
-    - name: Coveralls Parallel
-      working-directory: backend/
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}

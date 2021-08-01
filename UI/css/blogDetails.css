@@ -216,6 +216,13 @@ a {
     color: #22543d;
     display: none;
 }
+
+.alert-danger {
+    background-color: #dd3d37;
+    color: #f0f0f0;
+    display: none;
+}
+
 .footer {
     background-color: #24262b;
     padding: 60px 250px;

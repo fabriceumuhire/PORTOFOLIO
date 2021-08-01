@@ -46,7 +46,7 @@ function addLike() {
                 const likes = document.getElementById("likes");
                 likes.innerText = Number(likes.innerText) + 1
             }
-            location.reload();
+            window.reload();
         })
 }
 

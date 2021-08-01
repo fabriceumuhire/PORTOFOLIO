@@ -12,7 +12,7 @@ function logout() {
     window.location = "./login.html"
 }
 
-document.getElementById("blog_form").addEventListener("submit", function (event) {
+document.getElementById("blog_form").addEventListener("click", function (event) {
     event.preventDefault();
     const title = document.getElementById("title");
     const content = document.getElementById("content");
@@ -31,7 +31,7 @@ document.getElementById("blog_form").addEventListener("submit", function (event)
             if (response.ok) {
                 submitBtn.innerHTML = oldText;
                 document.getElementById("blog_form").reset();
-                document.getElementById("content").reset();
+/*                 document.getElementById("content").reset(); */
                 const alertSuccess = document.getElementsByClassName("alert-success")[0];
                 alertSuccess.innerHTML = "Message sent successfully";
                 alertSuccess.style.display = "block";
@@ -122,7 +122,7 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
                     alertSuccess.style.display = "block";
                     document.getElementById("content").reset();
                 } else {
-                    if (response.status == 401)
+                    if (response.status == 400)
                         throw Error("Error")
                 }
             })
@@ -135,28 +135,22 @@ document.querySelector('.blog-cards').addEventListener('click', (e) => {
     })
 });
 
-// Defining async function
 async function getapi(url) {
-    
-    // Storing response
     const response = await fetch(url);
-    
-    // Storing data in form of JSON
-    var data = await response.json();
+    const data = await response.json();
 
     if (response) {
         hideloader();
     }
     show(data);
 }
-// Calling that async function
+
 getapi(`${BASE_URL}/query`);
   
-// Function to hide the loader
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
 }
-// Function to define innerHTML for HTML table
+
 function show(data) {
     let tab = 
         `<tr>
@@ -166,7 +160,6 @@ function show(data) {
           <th>Message</th>
          </tr>`;
     
-    // Loop to access all rows 
     for (let r of data.message) {
         tab += `<tr> 
     <td>${r.name} </td>
@@ -175,7 +168,6 @@ function show(data) {
     <td>${r.message}</td>          
 </tr>`;
     }
-    // Setting innerHTML as tab variable
     document.getElementById("contact-query").innerHTML = tab;
 }
 

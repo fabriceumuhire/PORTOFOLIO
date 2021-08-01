@@ -121,6 +121,8 @@ describe('Register API', () => {
             token = tokenGenerator(res.body);
             res.should.have.status(200);
             res.should.have.property('status');
+            res.body.should.have.property('user');
+            res.body.should.have.property('token');
           });
         done();
       } catch (error) {
