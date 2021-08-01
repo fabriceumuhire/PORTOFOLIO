@@ -12,7 +12,7 @@ function logout() {
     window.location = "./login.html"
 }
 
-document.getElementById("blog_form").addEventListener("click", function (event) {
+document.getElementById("blog_form").addEventListener("submit", function (event) {
     event.preventDefault();
     const title = document.getElementById("title");
     const content = document.getElementById("content");
